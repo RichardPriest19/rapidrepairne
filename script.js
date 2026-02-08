@@ -222,17 +222,23 @@ function stopHeroSlider() {
     clearInterval(heroSliderInterval);
 }
 
-// ==================== SLIDER ====================
+
+
+
+
+
+
+// ==================== BEFORE & AFTER SLIDER ====================
 let currentSlide = 0;
 let sliderInterval;
-const slides = document.querySelectorAll('.slider-slide');
+const beforeAfterSlides = document.querySelectorAll('#slider .slider-slide');
+const beforeAfterContainer = document.getElementById('slider');
 
 function showSlide(index) {
-    const slider = document.getElementById('slider');
-    if (!slider || slides.length === 0) return;
+    if (!beforeAfterContainer || beforeAfterSlides.length === 0) return;
     
-    currentSlide = (index + slides.length) % slides.length;
-    slider.style.transform = `translateX(-${currentSlide * 100}%)`;
+    currentSlide = (index + beforeAfterSlides.length) % beforeAfterSlides.length;
+    beforeAfterContainer.style.transform = `translateX(-${currentSlide * 100}%)`;
     updateSliderIndicators();
 }
 
@@ -246,10 +252,12 @@ function prevSlide() {
 
 function goToSlide(index) {
     showSlide(index);
+    stopSlider();       // optional: pause auto-play on manual click
+    startSlider();      // restart auto-play
 }
 
 function updateSliderIndicators() {
-    const indicators = document.querySelectorAll('.slider-indicator');
+    const indicators = document.querySelectorAll('#slider .slider-indicator');
     indicators.forEach((indicator, index) => {
         if (index === currentSlide) {
             indicator.classList.remove('bg-white/50');
@@ -262,14 +270,49 @@ function updateSliderIndicators() {
 }
 
 function startSlider() {
-    if (slides.length > 0) {
-        sliderInterval = setInterval(nextSlide, 5000);
+    if (beforeAfterSlides.length > 0) {
+        sliderInterval = setInterval(nextSlide, 5000); // slower than hero
     }
 }
 
 function stopSlider() {
     clearInterval(sliderInterval);
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // ==================== SCROLL ANIMATIONS ====================
 function animateOnScroll() {
