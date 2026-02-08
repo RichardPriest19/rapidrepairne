@@ -5,18 +5,22 @@
 function showPromoModal() {
     const modal = document.getElementById('promoModal');
     if (modal) {
-        // Check if user has already seen the modal in this session
-        const hasSeenPromo = sessionStorage.getItem('promoModalSeen');
+        // Get current page path
+        const currentPage = window.location.pathname;
+        
+        // Check if user has already seen the modal on THIS specific page
+        const lastPageSeen = sessionStorage.getItem('promoModalLastPage');
        
-        if (!hasSeenPromo) {
+        // Show modal if it's a different page or first visit
+        if (lastPageSeen !== currentPage) {
             // Show modal after a delay
             setTimeout(() => {
                 modal.classList.remove('hidden');
                 document.body.style.overflow = 'hidden';
             }, 3000); // Show after 3 seconds
            
-            // Mark as seen for this session
-            sessionStorage.setItem('promoModalSeen', 'true');
+            // Mark this page as seen
+            sessionStorage.setItem('promoModalLastPage', currentPage);
         }
     }
 }
