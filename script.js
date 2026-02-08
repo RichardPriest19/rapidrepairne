@@ -385,8 +385,15 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // Initialize slider
     const slider = document.getElementById('slider');
-    if (slider && slides.length > 0) {
-        startSlider();
+
+
+
+    if (slider && beforeAfterSlides.length > 0) {
+     
+
+
+
+	 startSlider();
         updateSliderIndicators();
         
         // Pause slider on hover
