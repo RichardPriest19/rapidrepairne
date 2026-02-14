@@ -1,6 +1,21 @@
 // filename: script.js
 // Enhanced JavaScript for Vehicle Paint Repairs Website
 
+// ==================== LOADING SCREEN ====================
+window.addEventListener('load', function() {
+    const loadingScreen = document.getElementById('loadingScreen');
+    if (loadingScreen) {
+        // Add fade-out class after page loads
+        setTimeout(() => {
+            loadingScreen.classList.add('fade-out');
+            // Remove from DOM after animation completes
+            setTimeout(() => {
+                loadingScreen.remove();
+            }, 500);
+        }, 800); // Show for 800ms minimum
+    }
+});
+
 // ==================== PROMO MODAL ====================
 function showPromoModal() {
     const modal = document.getElementById('promoModal');

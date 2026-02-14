@@ -21,6 +21,15 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body class="font-poppins text-gray-800 bg-gray-50">
+    <!-- Loading Screen -->
+    <div id="loadingScreen" class="loading-screen">
+        <div class="loading-content">
+            <img src="liam_logo.png" alt="Rapid Repair" class="loading-logo">
+            <div class="loading-spinner"></div>
+            <p class="loading-text">Loading...</p>
+        </div>
+    </div>
+    
     <!-- Navigation -->
     <nav class="bg-gradient-to-r from-gray-900 to-gray-800 text-white shadow-lg">
         <div class="max-w-7xl mx-auto px-4 py-4">
@@ -280,34 +289,78 @@
         </div>
     </section>
 
-    <!-- Footer -->
+    <!-- Enhanced Footer with Logo -->
     <footer class="bg-gray-900 text-white py-8">
         <div class="max-w-7xl mx-auto px-4">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-6">
-                <div>
-                    <h3 class="text-xl font-bold mb-4">Rapid Repair NE</h3>
-                    <p class="text-gray-400">Professional paint repair services for all vehicle types.</p>
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-6">
+                <!-- Logo Section -->
+                <div class="flex flex-col items-start">
+                    <img src="liam_logo.png" alt="Rapid Repair" class="h-12 w-auto mb-4">
+                    <p class="text-gray-400 text-sm">Professional vehicle paint repairs in Durham and the North East since 2015.</p>
                 </div>
-                <div>
-                    <h3 class="text-xl font-bold mb-4">Quick Links</h3>
-                    <div class="space-y-2">
-                        <a href="index.html" class="block text-gray-400 hover:text-teal-400 transition-colors">Home</a>
-                        <a href="gallery.html" class="block text-gray-400 hover:text-teal-400 transition-colors">Gallery</a>
-                        <a href="pricing.html" class="block text-gray-400 hover:text-teal-400 transition-colors">Pricing</a>
-                        <a href="contact.html" class="block text-gray-400 hover:text-teal-400 transition-colors">Contact</a>
-                    </div>
-                </div>
+                
+                <!-- Contact Info -->
                 <div>
                     <h3 class="text-xl font-bold mb-4">Contact Info</h3>
                     <p class="text-gray-400">07543 107 243</p>
                     <p class="text-gray-400"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="c4edeae2ebc4f6e5f4ede0f6e1f4e5edf6eae1aae7ebaaf1ef">[email&#160;protected]</a></p>
                 </div>
+                
+                <!-- Quick Links -->
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Quick Links</h3>
+                    <div class="space-y-2">
+                        <a href="index.html" class="block text-gray-400 hover:text-teal-400">Home</a>
+                        <a href="gallery.html" class="block text-gray-400 hover:text-teal-400">Gallery</a>
+                        <a href="pricing.html" class="block text-gray-400 hover:text-teal-400">Pricing</a>
+                        <a href="contact.html" class="block text-gray-400 hover:text-teal-400">Contact</a>
+                    </div>
+                </div>
+                
+                <!-- Service Areas -->
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Service Areas</h3>
+                    <p class="text-gray-400 text-sm">Durham, Newcastle, Sunderland, Gateshead, and surrounding areas</p>
+                </div>
             </div>
-            <div class="border-t border-gray-800 pt-6 text-center text-gray-400">
-                <p>&copy; 2026 Rapid Repair NE. All rights reserved.</p>
+            
+            <!-- Bottom Bar with Logo Icon -->
+            <div class="border-t border-gray-800 pt-6 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400 text-sm mb-4 md:mb-0">&copy; 2026 Rapid Repair NE. All rights reserved.</p>
+                <div class="flex items-center space-x-2">
+                    <img src="liam_logo.png" alt="Rapid Repair" class="h-6 w-auto opacity-50">
+                    <span class="text-gray-500 text-xs">Powered by Excellence</span>
+                </div>
             </div>
         </div>
     </footer>
 
+    <!-- Back to Top Button -->
+    <button id="back-to-top" class="fixed bottom-4 right-4 bg-teal-400 text-gray-900 p-3 rounded-full shadow-lg hover:bg-teal-500 transition-all z-50" style="display: none;">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"></path>
+        </svg>
+    </button>
+
     <!-- Custom JS -->
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloud
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="script.js"></script>
+    <script>
+        // Back to top functionality
+        const backToTopButton = document.getElementById('back-to-top');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                backToTopButton.style.display = 'block';
+            } else {
+                backToTopButton.style.display = 'none';
+            }
+        });
+        
+        backToTopButton.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    </script>
+</body>
+</html>
